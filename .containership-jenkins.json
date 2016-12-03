@@ -1,0 +1,38 @@
+{
+    "default": {
+        "docker": {
+            "dockerfile": "Dockerfile",
+            "build-args": [{
+                "arg": "NPM_TOKEN",
+                "jenkins_credential": {
+                    "id": "npm_token",
+                    "type": "string"
+                }
+            }]
+        }
+    },
+    "stage": {
+        "branch": "development",
+        "docker": {
+            "dockerfile": "Dockerfile",
+            "build-args": [{
+                "arg": "NPM_TOKEN",
+                "jenkins_credential": {
+                    "id": "npm_token",
+                    "type": "string"
+                }
+            }]
+        }
+    },
+    "production": {
+        "branch": "master",
+        "dockerfile": "Dockerfile",
+        "build-args": [{
+            "arg": "NPM_TOKEN",
+            "jenkins_credential": {
+                "id": "npm_token",
+                "type": "string"
+            }
+        }]
+    }
+}
