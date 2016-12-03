@@ -11,8 +11,6 @@ def loadUtils() {
 def utils
 node {
     stage('Preparation') {
-        echo "${env}"
-        sh 'printenv'
         utils = loadUtils()
         echo "Loaded Containership Jenkins Utils"
     }
