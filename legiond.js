@@ -147,7 +147,9 @@ class LegionD extends EventEmitter {
 
         // execute message handler
         if (selfTarget && _.has(this.events, json.event)) {
-            this.events[json.event](json);
+            const selfJson = _.cloneDeep(json);
+            selfJson.author = this.get_attributes();
+            this.events[selfJson.event](selfJson);
         }
 
         // send out message to remaining targets
